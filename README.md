@@ -46,7 +46,7 @@ server:
 </dependency>
 ```
 
-* EurekaServerApplication.java
+* EurekaClientApplication.java
 `@EnableDiscoveryClient`
 
 * bootstrap.yml
