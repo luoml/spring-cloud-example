@@ -31,3 +31,36 @@ eureka:
 server:
   port: 8761
 ```
+
+# eureka-client
+<http://localhost:8761/>
+
+* pom.xml
+
+``` maven
+<dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-starter-eureka</artifactId>
+</dependency>
+```
+
+* EurekaServerApplication.java
+`@EnableDiscoveryClient`
+
+* bootstrap.yml
+
+```yml
+spring:
+  application:
+    name: eureka-client
+  profiles:
+    active: default    
+    
+server:
+  port: 8888
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+```
