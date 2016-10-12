@@ -20,7 +20,9 @@
 spring:
   application:
     name: eureka-server
-      
+  profiles:
+    active: default 
+          
 eureka:
   instance:
     hostname: localhost
