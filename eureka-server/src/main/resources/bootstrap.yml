@@ -3,13 +3,20 @@ spring:
     name: eureka-server
   profiles:
     active: default 
-          
+              
+server:
+  port: ${PORT:8761}
+  
 eureka:
   instance:
     hostname: localhost
   client:
-    registerWithEureka: false   #不注册自己
-    fetchRegistry: false        #不从注册中心取信息
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
 
-server:
-  port: 8761
+logging:
+#  file: logs/eureka-server.log
+  level:
+    org.springframework.web: INFO
