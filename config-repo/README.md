@@ -1,2 +1,2 @@
-# config-list
-spring-cloud-example服务配置清单
+# config-repo
+服务配置清单
