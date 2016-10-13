@@ -13,12 +13,8 @@
 </dependency>
 ```
 
-* ConfigServerApplication.java
-
-```
-@EnableDiscoveryClient
-@EnableConfigServer
-````
+* ConfigServerApplication.java 
+`@EnableConfigServer`
 
 * bootstrap.yml
 

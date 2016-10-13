@@ -3,3 +3,7 @@
 
 # eureka-client
 <http://localhost:8081/hello>
+
+# config-server
+
+# config-repo
