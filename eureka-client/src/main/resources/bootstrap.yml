@@ -2,8 +2,11 @@ spring:
   application:
     name: eureka-client
   profiles:
-    active: default    
-    
+    active: dev
+  cloud:
+    config:
+      uri: ${config.server.uri:http://localhost:8888}   
+
 server:
   port: 8081
 
@@ -11,4 +14,3 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
-    
