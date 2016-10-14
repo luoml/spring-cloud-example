@@ -1,5 +1,5 @@
 # eureka-client-feign
-<http://localhost:8081/hello>
+<http://localhost:8011/hello>
 
 * pom.xml
 
