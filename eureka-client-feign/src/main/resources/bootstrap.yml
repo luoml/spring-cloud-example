@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: eureka-client-feign
+  profiles:
+    active: dev
+  cloud:
+    config:
+      uri: ${config.server.uri:http://localhost:8888}   
+
+server:
+  port: 8011
+
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 1
+    leaseExpirationDurationInSeconds: 2
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+    healthcheck:
+      enabled: true
