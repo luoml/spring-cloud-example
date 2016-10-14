@@ -6,6 +6,9 @@
 # eureka-client
 <http://localhost:8081/hello>
 
+# eureka-client-feign
+<http://localhost:8011/hello>
+
 # config-server
 <http://localhost:8888/config-server/default/master>
 
