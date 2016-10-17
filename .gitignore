@@ -2,4 +2,4 @@
 /eureka-client/target
 /eureka-client-feign/target
 /config-server/target
-/zuul_api_gateway/target
+/zuul-api-gateway/target
