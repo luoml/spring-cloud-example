@@ -2,7 +2,7 @@ spring:
   application:
     name: eureka-client-feign
   profiles:
-    active: dev
+    active: default
   cloud:
     config:
       uri: ${config.server.uri:http://localhost:8888}   
