@@ -4,7 +4,7 @@
 <http://localhost:8761/>
 
 # zuul-api-gateway
-<http://localhost:8080/demo/hello>
+<http://localhost:8080/demo/hello>  
 <http://localhost:8080/demo2/hello>
 
 # eureka-client-feign
