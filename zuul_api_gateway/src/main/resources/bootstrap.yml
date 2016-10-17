@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: zuul-api-gateway
+  cloud:
+    config:
+      uri: ${config.server.uri:http://localhost:8888}
+
+server:
+  port: 8080
+
+logging:
+  level:
+    ROOT: INFO
+    org.springframework.web: INFO
