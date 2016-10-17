@@ -8,7 +8,7 @@ spring:
       uri: ${config.server.uri:http://localhost:8888}   
 
 server:
-  port: 8011
+  port: 8181
 
 eureka:
   instance:
