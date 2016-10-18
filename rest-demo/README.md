@@ -35,10 +35,19 @@
 	<groupId>org.springframework.data</groupId>
 	<artifactId>spring-data-rest-hal-browser</artifactId>
 </dependency>
+
+<dependency>
+	<groupId>org.springframework.cloud</groupId>
+	<artifactId>spring-cloud-starter-eureka</artifactId>
+</dependency>
 ```
 
 * RestDemoApplication.java
-`@SpringBootApplication`
+
+``` java
+@EnableDiscoveryClient
+@SpringBootApplication
+```
 
 * application.properties
 
