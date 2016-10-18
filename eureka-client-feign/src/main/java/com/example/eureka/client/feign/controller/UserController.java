@@ -17,9 +17,9 @@ public class UserController {
 	@Autowired
 	private UserServiceFeignClient userServiceFeignClient;
 	
-//	@HystrixCommand(commandProperties = {
-//			@HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "1000"),
-//			@HystrixProperty(name = "execution.timeout.enabled", value = "false") })
+	@HystrixCommand(commandProperties = {
+			@HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "1000"),
+			@HystrixProperty(name = "execution.timeout.enabled", value = "false") })
 	@RequestMapping(value = "/user-feign/{id}", method = RequestMethod.GET)
 	public User getUser(@PathVariable int id) {
 		return userServiceFeignClient.getUser(id);

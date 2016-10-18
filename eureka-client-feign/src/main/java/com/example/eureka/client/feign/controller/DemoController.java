@@ -15,9 +15,9 @@ public class DemoController {
 	@Autowired
 	private DemoServiceFeignClient demoServiceFeignClient;
 	
-//	@HystrixCommand(commandProperties = {
-//			@HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "1000"),
-//			@HystrixProperty(name = "execution.timeout.enabled", value = "false") })
+	@HystrixCommand(commandProperties = {
+			@HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "1000"),
+			@HystrixProperty(name = "execution.timeout.enabled", value = "false") })
 	@RequestMapping(value = "/hello", method = RequestMethod.GET)
 	public String hello() {
 		return demoServiceFeignClient.hello();
