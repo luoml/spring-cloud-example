@@ -17,8 +17,8 @@
 <http://localhost:8888/config-server/default/master>
 
 # rest-demo
-spring data rest + h2 + the hal browser
-<http://localhost:8088/api> 
+spring data rest + h2 + the hal browser  
+<http://localhost:8088/api>  
 <http://localhost:8088/h2-console>
 
 # config-repo

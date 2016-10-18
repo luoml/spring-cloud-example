@@ -1,5 +1,5 @@
 # rest-demo  
-<http://localhost:8088/api> 
+<http://localhost:8088/api>  
 <http://localhost:8088/h2-console>
 
 * pom.xml
@@ -74,6 +74,15 @@ spring.h2.console.settings.web-allow-others=false
 * Add the following configuration can return the primary key
  
 ``` java
+package com.example.rest.util;
+
+import org.springframework.context.annotation.Configuration;
+import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
+import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurerAdapter;
+
+import com.example.rest.entity.Department;
+import com.example.rest.entity.User;
+
 @Configuration
 public class RepositoryConfig extends RepositoryRestConfigurerAdapter {
 	
