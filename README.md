@@ -14,7 +14,8 @@
 ## eureka-client-feign
 客户端负载均衡  
 <http://localhost:8181/hello>  
-<http://localhost:8181/user-feign/1>
+FeignClient访问方式：<http://localhost:8181/user-feign/1>  
+RestTemplate访问方式：<http://localhost:8181/user-rest/1>
 
 ## eureka-client
 业务层微服务  
