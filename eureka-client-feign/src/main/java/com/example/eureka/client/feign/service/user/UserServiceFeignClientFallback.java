@@ -11,5 +11,10 @@ public class UserServiceFeignClientFallback implements UserServiceFeignClient {
 	public User getUser(int id) {
 		return new User("getUser.Fallback", "feignClient return");
 	}
+	
+	@Override
+	public User findUserByName(String name) {
+		return new User("findUserByName.Fallback", "feignClient return");
+	}
 
 }
