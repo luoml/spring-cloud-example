@@ -2,6 +2,7 @@
 <http://localhost:8181/hello>  
 <http://localhost:8181/user-feign/1>  
 <http://localhost:8181/user-feign/getUserByName/张三>  
+<http://localhost:8181/user-feign/getUserByAddress/test>  
 <http://localhost:8181/user-rest/1>
 
 * pom.xml

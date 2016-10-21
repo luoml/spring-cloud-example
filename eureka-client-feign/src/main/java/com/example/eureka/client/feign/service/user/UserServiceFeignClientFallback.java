@@ -17,4 +17,8 @@ public class UserServiceFeignClientFallback implements UserServiceFeignClient {
 		return new User("findUserByName.Fallback", "feignClient return");
 	}
 
+	@Override
+	public String findUserByAddress(String address) {
+		return "fallback";
+	}
 }

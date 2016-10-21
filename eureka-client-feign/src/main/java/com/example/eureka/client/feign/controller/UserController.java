@@ -50,4 +50,12 @@ public class UserController {
 	public User getUserByRest(@PathVariable int id) {
 		return userServiceRestClient.getUser(id);
 	}
+	
+	@HystrixCommand(commandProperties = {
+			@HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "1000"),
+			@HystrixProperty(name = "execution.timeout.enabled", value = "false") })
+	@RequestMapping(value = "/user-feign/getUserByAddress/{address}", method = RequestMethod.GET)
+	public String getUserByAddress(@PathVariable String address) {
+		return userServiceFeignClient.findUserByAddress(address);
+	}
 }

@@ -13,4 +13,7 @@ public interface UserService {
 	
 	@RequestMapping(value = "/api/user/search/findByName?name={name}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
 	User findUserByName(@PathVariable("name") String name);
+	
+	@RequestMapping(value = "/api/user/search/findByAddress?address={address}", method = RequestMethod.GET)
+	String findUserByAddress(@PathVariable("address") String address);
 }
