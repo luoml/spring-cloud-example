@@ -14,7 +14,7 @@
 ## eureka-client-feign
 客户端负载均衡  
 <http://localhost:8181/hello>  
-FeignClient访问方式：
+FeignClient访问方式：  
   返回单个对象：<http://localhost:8181/user-feign/1>  
   返回单个对象：<http://localhost:8181/user-feign/getUserByName/张三>  
   返回集合对象：<http://localhost:8181/user-feign/getUserByAddress/test>  
