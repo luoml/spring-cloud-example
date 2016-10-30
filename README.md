@@ -31,7 +31,7 @@ RestTemplate访问方式：<http://localhost:8181/user-rest/1>
 
 ## config-server
 分布式配置中心  
-<http://localhost:8888/config-server/default/master>
+<http://localhost:8888/eureka-client/dev>
 
 ## config-repo
 用于存储配置信息

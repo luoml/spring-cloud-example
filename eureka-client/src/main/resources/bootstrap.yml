@@ -5,7 +5,7 @@ spring:
     active: dev
   cloud:
     config:
-      uri: ${config.server.uri:http://localhost:8888}   
+      uri: ${config.server.uri:http://localhost:8888}
 
 server:
   port: 8081

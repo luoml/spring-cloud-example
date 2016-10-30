@@ -1,5 +1,5 @@
 # config-server
-项目启动后，访问地址：http://localhost:{server.port}/{spring.application.name}/{spring.active.profiles}/{trunk/branch/...}，如：<http://localhost:8888/config-server/default/master>
+项目启动后，访问地址：http://localhost:{server.port}/{spring.application.name}/{spring.active.profiles}/{trunk/branch/...}，如：<http://localhost:8888/eureka-client/dev>
 
 * pom.xml
 

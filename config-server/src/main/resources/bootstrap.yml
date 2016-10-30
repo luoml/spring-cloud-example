@@ -7,7 +7,7 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/luoml/spring-cloud-example
+          uri: ${config.repo.uri:https://github.com/luoml/spring-cloud-example}
           searchPaths: config-repo
     
 server:
