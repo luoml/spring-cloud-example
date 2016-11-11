@@ -1,10 +1,10 @@
 # eureka-client  
-本项目用于Eureka客户端演示，集成了Eureka Client、Swagger2、Spring Cloud Config等  
+本项目用于演示Eureka Client、Swagger2、Spring Cloud Config等  
 
 |url|desc|  
 |:---|:---|   
-|http://localhost:8081/swagger-ui.html|Eureka客户端接口列表|  
-|http://localhost:8081/health|返回应用程序的健康指标，Actuator提供功能之一|   
+|<http://localhost:8081/swagger-ui.html>|Eureka客户端接口列表|  
+|<http://localhost:8081/health>|返回应用程序的健康指标，Actuator提供功能之一|   
 
 ## 启用Eureka Client  
 * 引入Maven依赖  
@@ -30,7 +30,7 @@ eureka:
       defaultZone: http://localhost:8761/eureka/
 ```
 
-_注：增加leaseRenewalIntervalInSeconds和leaseExpirationDurationInSeconds配置，可修复以下警告_  
+_注：增加leaseRenewalIntervalInSeconds和leaseExpirationDurationInSeconds配置，可修复以下警告：_  
 ```
 EMERGENCY! EUREKA MAY BE INCORRECTLY CLAIMING INSTANCES ARE UP WHEN THEY'RE NOT. RENEWALS ARE LESSER THAN THRESHOLD AND HENCE THE INSTANCES ARE NOT BEING EXPIRED JUST TO BE SAFE.
 ```
@@ -52,7 +52,7 @@ public class EurekaClientApplication {
 * 引入Maven依赖  
 
 _本项目swagger版本采用2.5.0；_  
-_测试发现，使用2.6.0版本时，当服务注册到服务中心，会出现服务名为UNKNOWN的情况 _
+_测试发现，使用2.6.0版本时，当服务注册到服务中心，会出现服务名为UNKNOWN的情况_  
 ``` maven
 <!-- swagger2 -->
 <dependency>
@@ -154,7 +154,7 @@ _Actuator提供了很多生产级的特性，如：监控、度量、健康指�
 
 ###　Devtools
 
-_devtools能够实现代码的热部署，可在开发测试阶段启用；如下，只需引入Maven依赖即可_
+_devtools能够实现代码的热部署，可在开发测试阶段启用；如下，只需引入Maven依赖_
 ``` maven
 <!-- 热部署 -->
 <dependency>
