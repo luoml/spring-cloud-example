@@ -152,7 +152,7 @@ _Actuator提供了很多生产级的特性，如：监控、度量、健康指�
 </dependency>
 ```
 
-###　Devtools
+### Devtools
 
 _devtools能够实现代码的热部署，可在开发测试阶段启用；如下，只需引入Maven依赖_
 ``` maven
