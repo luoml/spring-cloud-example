@@ -3,8 +3,8 @@
 
 |url|desc|  
 |:---|:---|   
-|<http://localhost:8081/swagger-ui.html>|Eureka客户端接口列表|  
-|<http://localhost:8081/health>|返回应用程序的健康指标，Actuator提供功能之一|   
+|http://localhost:8081/swagger-ui.html|Eureka客户端接口列表|  
+|http://localhost:8081/health|返回应用程序的健康指标，Actuator提供功能之一|   
 
 ## 启用Eureka Client  
 * 引入Maven依赖  
@@ -30,7 +30,7 @@ eureka:
       defaultZone: http://localhost:8761/eureka/
 ```
 
-_注：增加leaseRenewalIntervalInSeconds和leaseExpirationDurationInSeconds配置，可修复以下警告：_  
+_注：增加leaseRenewalIntervalInSeconds和leaseExpirationDurationInSeconds配置，可修复EurekaServer界面以下警告：_  
 ```
 EMERGENCY! EUREKA MAY BE INCORRECTLY CLAIMING INSTANCES ARE UP WHEN THEY'RE NOT. RENEWALS ARE LESSER THAN THRESHOLD AND HENCE THE INSTANCES ARE NOT BEING EXPIRED JUST TO BE SAFE.
 ```
@@ -52,7 +52,7 @@ public class EurekaClientApplication {
 * 引入Maven依赖  
 
 _本项目swagger版本采用2.5.0；_  
-_测试发现，使用2.6.0版本时，当服务注册到服务中心，会出现服务名为UNKNOWN的情况_  
+_在测试过程中发现，使用2.6.0版本时，当服务注册到服务中心，会出现服务名为UNKNOWN的情况_  
 ``` maven
 <!-- swagger2 -->
 <dependency>
@@ -69,7 +69,7 @@ _测试发现，使用2.6.0版本时，当服务注册到服务中心，会出�
 
 * 配置并启用Swagger2  
 
-_增加@EnableSwagger2注解用于启用Swagger2_  
+_增加@EnableSwagger2注解，启用Swagger2_  
 ``` java
 @Configuration
 @EnableSwagger2
