@@ -10,10 +10,13 @@ spring:
 server:
   port: 8081
 
+# eureka.instance.leaseRenewalIntervalInSeconds 心跳间隔（秒），默认30s
+# eureka.instance.leaseExpirationDurationInSeconds　失效时间，默认90s
+# 如果服务在指定的 失效时间 内仍没有发起心跳请求，将会被剔除EurekaServer
 eureka:
   instance:
-    leaseRenewalIntervalInSeconds: 1
-    leaseExpirationDurationInSeconds: 2
+    leaseRenewalIntervalInSeconds: 3
+    leaseExpirationDurationInSeconds: 10
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
