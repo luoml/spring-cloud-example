@@ -100,7 +100,7 @@ public class Swagger2Config {
 ```
 
 
-## 配置SpringCloudConfig
+## 配置Config Client
 * 引入Maven依赖  
 
 ``` maven
