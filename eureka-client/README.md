@@ -1,5 +1,5 @@
 # eureka-client  
-本项目用于演示Eureka Client、Swagger2、Spring Cloud Config等  
+本项目用于演示Eureka Client、Swagger2、Config Client等  
 
 |url|desc|  
 |:---|:---|   
