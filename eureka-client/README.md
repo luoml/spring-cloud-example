@@ -23,8 +23,8 @@ _以下是bootstrap.yml中eureka相关配置_
 ``` yml
 eureka:
   instance:
-    leaseRenewalIntervalInSeconds: 1
-    leaseExpirationDurationInSeconds: 2
+    leaseRenewalIntervalInSeconds: 10
+    leaseExpirationDurationInSeconds: 30
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
