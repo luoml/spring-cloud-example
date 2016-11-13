@@ -3,7 +3,7 @@
 > 1. _采用嵌入式的H2数据库_  
 > 2. _使用Spring Data JPA进行数据持久化_  
 > 3. _通过Spring Data Rest将Spring Data JPA的Repository自动转换成REST服务_  
-> 4. _同时，引入the HAL Browser，便于可视化测试_  
+> 4. _引入the HAL Browser，便于可视化测试_  
 
 |url|desc|  
 |:---|:---|   
