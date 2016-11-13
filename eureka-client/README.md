@@ -1,5 +1,5 @@
 # eureka-client  
-本项目用于演示Eureka Client、Swagger2、Config Client等  
+本模块用于演示Eureka Client、Swagger2、Config Client等  
 
 |url|desc|  
 |:---|:---|   

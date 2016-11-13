@@ -1,5 +1,5 @@
 # config-server  
-本项目演示Spring Cloud Config Server。  
+本模块主要演示Spring Cloud Config Server。  
 ConfigServer用于管理Git或SVN配置，当其收到来自客户端的配置获取请求后，会将远程仓库的配置clone到本地的临时目录，然后从本地读取配置并返回。  
 
 |url|desc|  

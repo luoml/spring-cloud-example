@@ -1,5 +1,5 @@
 # eureka-server
-本项目用于演示Eureka Server  
+本模块用于演示Eureka Server  
 
 |url|desc|  
 |:---|:---|   
