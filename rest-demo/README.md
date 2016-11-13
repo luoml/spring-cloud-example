@@ -1,67 +1,29 @@
 # rest-demo  
-<http://localhost:8088/api>  
-<http://localhost:8088/h2-console>
+本模块主要演示了数据库的增删改查等操作。  
+1. _采用嵌入式的H2数据库_  
+2. _使用Spring Data JPA进行数据持久化_  
+3. _通过Spring Data Rest将Spring Data JPA的Repository自动转换成REST服务_  
+4. _同时，引入the HAL Browser，便于可视化测试_  
 
-* pom.xml
+|url|desc|  
+|:---|:---|   
+|http://localhost:8082/h2|访问h2控制台|  
+|http://localhost:8082/api|返回接口清单|  
 
+## 配置H2数据库
+
+* 引入Maven依赖  
 ``` maven
-<dependency>
-	<groupId>org.springframework.boot</groupId>
-	<artifactId>spring-boot-starter-actuator</artifactId>
-</dependency>
-<dependency>
-	<groupId>org.springframework.boot</groupId>
-	<artifactId>spring-boot-starter-web</artifactId>
-</dependency>
-<dependency>
-	<groupId>org.springframework.boot</groupId>
-	<artifactId>spring-boot-starter-data-jpa</artifactId>
-</dependency>
 <dependency>
 	<groupId>com.h2database</groupId>
 	<artifactId>h2</artifactId>
 	<scope>runtime</scope>
 </dependency>
-
-<dependency>
-	<groupId>org.springframework.boot</groupId>
-	<artifactId>spring-boot-starter-data-rest</artifactId>
-</dependency>
-<dependency>
-	<groupId>org.springframework.boot</groupId>
-	<artifactId>spring-boot-starter-hateoas</artifactId>
-</dependency>
-<dependency>
-	<groupId>org.springframework.data</groupId>
-	<artifactId>spring-data-rest-hal-browser</artifactId>
-</dependency>
-
-<dependency>
-	<groupId>org.springframework.cloud</groupId>
-	<artifactId>spring-cloud-starter-eureka</artifactId>
-</dependency>
 ```
 
-* RestDemoApplication.java
-
-``` java
-@EnableDiscoveryClient
-@SpringBootApplication
-```
-
-* application.properties
-
+* 配置数据源等参数  
 ``` properties
-server.port=8088
-
-spring.data.rest.basePath = /api
-
 spring.datasource.driverClassName=org.h2.Driver
-# save memory
-#spring.datasource.url = jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
-# save file (absolute path)
-#spring.datasource.url = jdbc:h2:file:E:\\h2\\test
-# save file (~ is current user dir)
 spring.datasource.url=jdbc:h2:file:~/.h2/test
 spring.datasource.username=sa
 spring.datasource.password=
@@ -69,32 +31,75 @@ spring.datasource.password=
 spring.jpa.show-sql=true
 spring.jpa.hibernate.ddl-auto=update
 
-# H2 Web Console (H2ConsoleProperties)
-# Enable the console.
+# 启用H2控制台
 spring.h2.console.enabled=true
-# Path at which the console will be available.
-spring.h2.console.path=/h2-console
-# Enable trace output.
-spring.h2.console.settings.trace=false
-# Enable remote access.
-spring.h2.console.settings.web-allow-others=false
+# 设置H2控制台访问路径
+spring.h2.console.path=/h2
 ```
 
-* Add the following configuration can return the primary key
- 
+## 配置Spring Data JPA  
+
+* 引入Maven依赖    
+``` maven
+<dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-data-jpa</artifactId>
+</dependency>
+```
+
+* 定义实体类
 ``` java
-package com.example.rest.util;
+@Entity
+public class User {	
+	@Id
+	@GeneratedValue
+	private Integer id;	
+	private String name;
+	private String address;
+	
+	...
+}
+```
 
-import org.springframework.context.annotation.Configuration;
-import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
-import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurerAdapter;
+* 定义仓库接口  
+_增加@RepositoryRestResource注解，可通过path重定义Repository访问路径_  
+``` java
+@RepositoryRestResource(path = "user")
+public interface UserRepository extends JpaRepository<User, Integer> {	
+	User findByName(@Param("name") String name);	
+	List<User> findByAddress(@Param("address") String address);	
+}
+```
 
-import com.example.rest.entity.Department;
-import com.example.rest.entity.User;
+## 配置Spring Data REST  
 
+* 引入Maven依赖    
+``` maven
+<dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-data-rest</artifactId>
+</dependency>
+```
+
+_当然，也可直接引入the HAL Browser依赖，这样，测试起来将会更方便、更直观。_  
+``` maven
+<dependency>
+	<groupId>org.springframework.data</groupId>
+	<artifactId>spring-data-rest-hal-browser</artifactId>
+</dependency>
+```
+
+* 配置REST相关参数  
+_也可不配置，使用默认配置_  
+``` properties
+spring.data.rest.basePath = /api
+```
+
+* 配置获取主键ID
+_默认情况下，接口查询是不会返回主键ID的；如果希望获取主键，可增加如下配置：_  
+``` java
 @Configuration
 public class RepositoryConfig extends RepositoryRestConfigurerAdapter {
-	
 	@Override
 	public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config) {
 		config.exposeIdsFor(User.class);

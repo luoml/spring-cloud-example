@@ -10,6 +10,9 @@ import com.example.rest.entity.User;
 @Configuration
 public class RepositoryConfig extends RepositoryRestConfigurerAdapter {
 	
+	/**
+	 * 返回主键ID
+	 */
 	@Override
 	public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config) {
 		config.exposeIdsFor(User.class);
