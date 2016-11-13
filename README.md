@@ -7,7 +7,7 @@ __项目基于Spring Boot 1.4.1.RELEASE__
 |config-server|Spring Cloud Config Server，从config-repo拉取配置清单|  
 |eureka-server|Eureka服务注册中心|  
 |eureka-client|Eureka与Config客户端，集成Swagger2等|  
-|rest-demo|数据库增删改查，涉及Eureka Client、Spring Data JPA、Spring Data REST、H2、the HAL Browser等|
+|rest-demo|数据库增删改查，涉及Eureka Client、Spring Data JPA、Spring Data REST、H2、the HAL Browser等|  
 |...|...|
 
 
