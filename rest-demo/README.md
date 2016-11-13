@@ -1,9 +1,9 @@
 # rest-demo  
 本模块主要演示了数据库的增删改查等操作。  
-1. _采用嵌入式的H2数据库_  
-2. _使用Spring Data JPA进行数据持久化_  
-3. _通过Spring Data Rest将Spring Data JPA的Repository自动转换成REST服务_  
-4. _同时，引入the HAL Browser，便于可视化测试_  
+> 1. _采用嵌入式的H2数据库_  
+> 2. _使用Spring Data JPA进行数据持久化_  
+> 3. _通过Spring Data Rest将Spring Data JPA的Repository自动转换成REST服务_  
+> 4. _同时，引入the HAL Browser，便于可视化测试_  
 
 |url|desc|  
 |:---|:---|   
@@ -62,7 +62,7 @@ public class User {
 ```
 
 * 定义仓库接口  
-_增加@RepositoryRestResource注解，可通过path重定义Repository访问路径_  
+_增加@RepositoryRestResource注解，可通过path自定义Repository访问路径_  
 ``` java
 @RepositoryRestResource(path = "user")
 public interface UserRepository extends JpaRepository<User, Integer> {	
@@ -111,7 +111,9 @@ public class RepositoryConfig extends RepositoryRestConfigurerAdapter {
 ## 运行截图
 * Spring Data REST  
 ![Spring Data REST](images/rest.jpg)  
+
 * the HAL Browser  
 ![the HAL Browser](images/hal.jpg)  
+
 * H2 Console  
 ![H2 Console](images/h2-console.jpg)  
