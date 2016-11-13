@@ -107,3 +107,11 @@ public class RepositoryConfig extends RepositoryRestConfigurerAdapter {
 	}
 }
 ```
+
+## 运行截图
+* Spring Data REST  
+![Spring Data REST](images/rest.jpg)  
+* the HAL Browser  
+![the HAL Browser](images/hal.jpg)  
+* H2 Console  
+![H2 Console](images/h2-console.jpg)  
