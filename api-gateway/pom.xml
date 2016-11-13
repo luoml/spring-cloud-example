@@ -4,11 +4,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.example.zuul.api.gateway</groupId>
-	<artifactId>zuul-api-gateway</artifactId>
+	<artifactId>api-gateway</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>zuul-api-gateway</name>
+	<name>api-gateway</name>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -68,5 +68,5 @@
 	</build>
 
 
-	<description>zuul-api-gateway</description>
+	<description>zuul api gateway</description>
 </project>
