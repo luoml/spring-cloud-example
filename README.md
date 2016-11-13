@@ -2,6 +2,7 @@
 __项目基于Spring Boot 1.4.1.RELEASE__
 
 _各模块简要说明如下，详细介绍可进入对应模块所在目录查看。_  
+
 |project|desc|  
 |---|---|  
 |config-repo|Git远程仓库|  
