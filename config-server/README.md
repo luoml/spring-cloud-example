@@ -47,3 +47,10 @@ public class ConfigServerApplication {
 	}
 }
 ```
+
+## 运行截图
+* eureka-client dev配置  
+![Spring Data REST](../images/config-server/dev.jpg)    
+
+* eureka-client 默认配置  
+![the HAL Browser](../images/config-server/default.jpg)  
