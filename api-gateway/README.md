@@ -17,6 +17,7 @@
 ```
 
 * 配置接口  
+
 _serviceId指定服务名_  
 _url指定服务地址_
 ``` properties
@@ -39,6 +40,7 @@ hystrix:
 ```
 
 * 启用Zuul  
+
 _增加@EnableZuulProxy注解，启用Zuul_
 ``` java
 @EnableZuulProxy
