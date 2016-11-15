@@ -1,8 +1,6 @@
 spring:
   application:
-    name: eureka-client-feign
-  profiles:
-    active: default
+    name: feign-demo
   cloud:
     config:
       uri: ${config.server.uri:http://localhost:8888}   
@@ -12,10 +10,8 @@ server:
 
 eureka:
   instance:
-    leaseRenewalIntervalInSeconds: 1
-    leaseExpirationDurationInSeconds: 2
+    leaseRenewalIntervalInSeconds: 10
+    leaseExpirationDurationInSeconds: 30
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
-    healthcheck:
-      enabled: true
