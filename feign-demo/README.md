@@ -3,11 +3,12 @@
 
 |url|desc|  
 |:---|:---|   
-|http://localhost:8181/hello|FeignClient方式获取eureka-client服务的hello()返回信息|  
-|http://localhost:8181/user-feign/1|根据ID获取User，FeignClient方式（db-rest）|  
-|http://localhost:8181/user-feign/getUserByName/张三|根据name获取User，FeignClient方式（db-rest）|  
-|http://localhost:8181/user-feign/getUserByAddress/test|根据地址获取User，FeignClient方式（db-rest）|  
-|http://localhost:8181/user-rest/1|根据ID获取User，RestTemplate方式（db-rest）|  
+|http://localhost:8181/hello|输出hello信息 [eureka-client]|  
+|http://localhost:8181/user-feign/1|根据ID获取User [db-rest]|  
+|http://localhost:8181/user-feign/getUserByName/张三|根据name获取User [db-rest]|  
+|http://localhost:8181/user-feign/getUserByAddress/test|根据地址获取User [db-rest]|
+|...|_以上均为FeignClient方式实现_|    
+|http://localhost:8181/user-rest/1|根据ID获取User [db-rest]（RestTemplate方式）|  
 
 ## 配置FeignClient
 
@@ -42,8 +43,8 @@ public interface UserServiceFeignClient extends UserService {
 
 // 定义FeignClient接口访问列表。注意：地址一定要正确
 // 测试中发现：
-//  1.spring data rest实现的方法，如带有参数；接口url需要以/method?param={param}的方式定义
-//  2.而controller层实现的方法，接口url则可以直接通过/method/{param}的方式定义
+//  spring data rest实现的方法，如带有参数；接口url需要以/method?param={param}的方式定义；
+//  而controller层实现的方法，接口url则可以直接通过/method/{param}的方式定义
 public interface UserService {
 	@RequestMapping(value = "/api/user/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     User getUser(@PathVariable("id") int id);
@@ -95,6 +96,7 @@ public User getUser(int id) {
 ```
 
 * 增加Hystrix配置  
+_以下仅配置了启用超时及超时时间_  
 ``` java
 @HystrixCommand(commandProperties = {
 		@HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "1000"),
@@ -104,3 +106,22 @@ public User getUser(@PathVariable int id) {
 	return userServiceFeignClient.getUser(id);
 }
 ```
+
+## 运行截图
+* FeignClient方式，根据ID获取User  
+![id-fc](../_images/feign-demo/findUserById-fc.jpg)  
+
+* RestTemplate方式，根据ID获取User  
+![id-rt](../_images/feign-demo/findUserById-rt.jpg)  
+
+* FeignClient方式，根据地址返回User列表  
+![](../_images/feign-demo/getUserByAddress.jpg)  
+
+* FeignClient方式，根据name获取User  
+![](../_images/feign-demo/getUserByName.jpg)  
+
+* FeignClient方式，正常输出hello信息  
+![](../_images/feign-demo/hello.jpg)  
+
+* FeingClient + Hystrix方式，当服务异常停止后，输出hello方法对应的fallback信息    
+![](../_images/feign-demo/hello-fallback.jpg)  
