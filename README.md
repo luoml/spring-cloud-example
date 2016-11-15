@@ -1,5 +1,7 @@
 
-__项目基于Spring Boot 1.4.1.RELEASE__
+Spring Cloud Example [![Build Status](https://travis-ci.org/[luoml]/[spring-cloud-example].png)](https://travis-ci.org/[luoml]/[spring-cloud-example])  
+
+__项目基于Spring Boot 1.4.1.RELEASE__  
 
 _各模块简要说明如下，详细介绍可进入对应模块所在目录查看。_  
 
