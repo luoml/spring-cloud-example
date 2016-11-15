@@ -162,3 +162,11 @@ _devtools能够实现代码的热部署，可在开发测试阶段启用；如�
 	<artifactId>spring-boot-devtools</artifactId>
 </dependency>
 ```
+
+## 运行截图  
+
+* swagger2演示  
+![swagger2](../_images/eureka-client/swagger.jpg)   
+
+* 应用健康情况  
+![actuator](../_images/eureka-client/health.jpg)   
