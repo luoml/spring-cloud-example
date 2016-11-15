@@ -13,6 +13,15 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
 
+# 设置默认超时时间60s
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
+
 logging:
   level:
     ROOT: INFO

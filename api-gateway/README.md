@@ -1,54 +1,51 @@
-# zuul-api-gateway
+# api-gateway
+本模块演示api gateway，通过Zuul实现。  
 
-* pom.xml
+|url|desc|  
+|:---|:---|   
+|http://localhost:8080/swagger/hello|访问eureka-client服务的hello方法|  
+|http://localhost:8080/rest/api/user|获取db-rest服务的User列表|  
+|...|...|
 
+## 启用Zuul  
+* 引入Maven依赖  
 ``` maven
 <dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-actuator</artifactId>
-</dependency>
-
-<dependency>
-    <groupId>org.springframework.cloud</groupId>
-    <artifactId>spring-cloud-starter-eureka</artifactId>
-</dependency>
-
-<dependency>
-    <groupId>org.springframework.cloud</groupId>
-    <artifactId>spring-cloud-starter-zuul</artifactId>
+	<groupId>org.springframework.cloud</groupId>
+	<artifactId>spring-cloud-starter-zuul</artifactId>
 </dependency>
 ```
 
-* ZuulApiGatewayApplication.java
-`@EnableZuulProxy`
-
-* bootstrap.yml
-
-``` yml
-spring:
-  application:
-    name: zuul-api-gateway
-  cloud:
-    config:
-      uri: ${config.server.uri:http://localhost:8888}
-
-server:
-  port: 8080
-
-logging:
-  level:
-    ROOT: INFO
-    org.springframework.web: INFO
-```
-
-* application.properties
-
+* 配置接口  
+_serviceId指定服务名_  
+_url指定服务地址_
 ``` properties
-eureka.client.serviceUrl.defaultZone=http://localhost:8761/eureka/
+zuul.routes.eureka-client.path = /swagger/**
+zuul.routes.eureka-client.serviceId = eureka-client
 
-zuul.routes.demo.path = /demo/**
-zuul.routes.demo.serviceId = eureka-client-feign
+zuul.routes.rest-demo.path = /rest/**
+zuul.routes.rest-demo.url = http://localhost:8082/
+```
 
-zuul.routes.demo2.path = /demo2/**
-zuul.routes.demo2.url = http://localhost:8181/
-``` 
+_最好还设置下Hystrix的全局超时时间，如下，设置默认超时时间为60s_  
+``` yml
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
+```
+
+* 启用Zuul  
+_增加@EnableZuulProxy注解，启用Zuul_
+``` java
+@EnableZuulProxy
+@SpringBootApplication
+public class ZuulApiGatewayApplication {
+	public static void main(String[] args) {
+		SpringApplication.run(ZuulApiGatewayApplication.class, args);
+	}
+}
+```
