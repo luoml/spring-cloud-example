@@ -5,12 +5,14 @@ spring:
 server:
   port: 8761
   
+# eureka.instance.preferIpAddress 是否使用IP注册
 # eureka.client.registerWithEureka 不注册自己到Eureka服务中心
 # eureka.client.fetchRegistry 从Eureka服务中心获取注册信息
 # eureka.client.serviceUrl.defaultZone 设置Eureka服务中心地址
 eureka:
   instance:
     hostname: localhost
+    preferIpAddress: true
   client:
     registerWithEureka: false
     fetchRegistry: false
