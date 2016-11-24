@@ -5,10 +5,14 @@ spring:
 server:
   port: 8082
 
+# eureka.instance.preferIpAddress、eureka.instance.instance-id配合使用，当服务注册到服务中心时，显示IP地址，而不是主机名
 eureka:
   instance:
     leaseRenewalIntervalInSeconds: 10
     leaseExpirationDurationInSeconds: 30
+    preferIpAddress: true
+    instance-id: ${spring.cloud.client.ipAddress}:${spring.application.name}:${spring.application.instance_id:${server.port}}
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
+  
