@@ -22,6 +22,7 @@
 ```
 
 * 配置数据源等参数  
+
 ``` properties
 spring.datasource.driverClassName=org.h2.Driver
 spring.datasource.url=jdbc:h2:file:~/.h2/test
@@ -90,7 +91,7 @@ _当然，也可直接引入the HAL Browser依赖，这样，测试起来将会�
 ```
 
 * 配置REST相关参数  
-_也可不配置，使用默认配置_  
+_非必须_  
 ``` properties
 spring.data.rest.basePath = /api
 ```
