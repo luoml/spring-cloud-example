@@ -9,6 +9,7 @@ GitBook：<https://www.gitbook.com/book/luoml/spring-cloud-example/details>
 
 
 _项目基于Spring Boot 1.4.1.RELEASE，各模块简要说明如下：_  
+
 |project|desc|  
 |---|---|  
 |config-repo|Git远程仓库|  
