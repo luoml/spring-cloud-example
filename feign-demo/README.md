@@ -3,13 +3,16 @@
 
 |url|desc|  
 |:---|:---|  
+|......|......|    
 |...|_以下为FeignClient方式实现_|     
 |http://localhost:8181/hello|输出hello信息 [eureka-client]|  
 |http://localhost:8181/user-feign/1|根据ID获取User [db-rest]|  
 |http://localhost:8181/user-feign/getUserByName/张三|根据name获取User [db-rest]|  
 |http://localhost:8181/user-feign/getUserByAddress/test|根据地址获取User [db-rest]|
+|......|......|    
 |...|_以下为RestTemplate方式实现_|    
 |http://localhost:8181/user-rest/1|根据ID获取User [db-rest]（RestTemplate方式）|  
+|......|......|    
 |...|_以下为Hystrix Dashboard监控_|    
 |http://localhost:8181/hystrix|查看仪表盘|  
 |http://localhost:8181/hystrix.stream|在仪表盘中增加监控|  
@@ -125,7 +128,7 @@ public User getUser(@PathVariable int id) {
 </dependency>
 ```
 
-*　启用FeignClient  
+*　启用Hystrix Dashboard  
 _spring boot启动类增加@EnableHystrixDashboard和@EnableCircuitBreaker注解，启用Hystrix Dashboard_  
 ``` java
 @EnableHystrixDashboard
@@ -162,7 +165,6 @@ public class EurekaClientFeignApplication {
 
 * Hystrix Dashboard监控  
 ![](../_images/feign-demo/hystrix.jpg)  
-
 _输入监控地址：http://localhost:8181/hystrix.stream，点击Monitor Stream，进入监控界面_  
 _当访问相关接口时，Hystrix仪表板将会显示每个断路器的健康情况。_
 ![](../_images/feign-demo/hystrix.stream.jpg)  
