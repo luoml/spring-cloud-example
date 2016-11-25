@@ -1,5 +1,5 @@
 # rest-demo  
-本模块主要演示了数据库的增删改查等操作。  
+本模块主要演示了对数据库的增删改查等操作。  
 > 1. _采用嵌入式的H2数据库_  
 > 2. _使用Spring Data JPA进行数据持久化_  
 > 3. _通过Spring Data Rest将Spring Data JPA的Repository自动转换成REST服务_  
