@@ -27,7 +27,7 @@
 </dependency>
 ```
 
-*　启用FeignClient  
+* 启用FeignClient  
 _spring boot启动类增加@EnableFeignClients注解，使其自动扫描@FeignClient_  
 ``` java
 @EnableFeignClients
@@ -116,7 +116,8 @@ public User getUser(@PathVariable int id) {
 
 ## 配置Hystrix Dashboard
 * 引入Maven依赖  
-``` maven
+
+``` maven  
 <dependency>
 	<groupId>org.springframework.boot</groupId>
 	<artifactId>spring-boot-starter-actuator</artifactId>
@@ -126,10 +127,12 @@ public User getUser(@PathVariable int id) {
 	<groupId>org.springframework.cloud</groupId>
 	<artifactId>spring-cloud-starter-hystrix-dashboard</artifactId>
 </dependency>
-```
+```  
 
 *　启用Hystrix Dashboard  
+
 _spring boot启动类增加@EnableHystrixDashboard和@EnableCircuitBreaker注解，启用Hystrix Dashboard_  
+
 ``` java
 @EnableHystrixDashboard
 @EnableCircuitBreaker
