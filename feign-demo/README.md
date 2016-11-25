@@ -1,19 +1,25 @@
 # feign-demo
 本模块主要演示集成了Feign、Hystrix的Eureka客户端。  
 
+
+_FeignClient方式调用接口_  
 |url|desc|  
 |:---|:---|  
-|......|......|    
-|...|_以下为FeignClient方式实现_|     
 |http://localhost:8181/hello|输出hello信息 [eureka-client]|  
 |http://localhost:8181/user-feign/1|根据ID获取User [db-rest]|  
 |http://localhost:8181/user-feign/getUserByName/张三|根据name获取User [db-rest]|  
-|http://localhost:8181/user-feign/getUserByAddress/test|根据地址获取User [db-rest]|
-|......|......|    
-|...|_以下为RestTemplate方式实现_|    
+|http://localhost:8181/user-feign/getUserByAddress/test|根据地址获取User [db-rest]|  
+
+
+_RestTemplate方式调用接口_   
+|url|desc|  
+|:---|:---|  
 |http://localhost:8181/user-rest/1|根据ID获取User [db-rest]（RestTemplate方式）|  
-|......|......|    
-|...|_以下为Hystrix Dashboard监控_|    
+
+
+_Hystrix Dashboard监控_  
+|url|desc|  
+|:---|:---|    
 |http://localhost:8181/hystrix|查看仪表盘|  
 |http://localhost:8181/hystrix.stream|在仪表盘中增加监控|  
 
