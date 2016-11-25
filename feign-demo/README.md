@@ -1,8 +1,8 @@
 # feign-demo
 本模块主要演示集成了Feign、Hystrix的Eureka客户端。  
 
-
 _FeignClient方式调用接口_  
+
 |url|desc|  
 |:---|:---|  
 |http://localhost:8181/hello|输出hello信息 [eureka-client]|  
@@ -12,12 +12,14 @@ _FeignClient方式调用接口_
 
 
 _RestTemplate方式调用接口_   
+
 |url|desc|  
 |:---|:---|  
 |http://localhost:8181/user-rest/1|根据ID获取User [db-rest]（RestTemplate方式）|  
 
 
 _Hystrix Dashboard监控_  
+
 |url|desc|  
 |:---|:---|    
 |http://localhost:8181/hystrix|查看仪表盘|  
@@ -26,6 +28,7 @@ _Hystrix Dashboard监控_
 ## 配置FeignClient
 
 * 引入Maven依赖  
+
 ``` maven
 <dependency>
 	<groupId>org.springframework.cloud</groupId>
@@ -34,7 +37,9 @@ _Hystrix Dashboard监控_
 ```
 
 * 启用FeignClient  
+
 _spring boot启动类增加@EnableFeignClients注解，使其自动扫描@FeignClient_  
+
 ``` java
 @EnableFeignClients
 @EnableDiscoveryClient
@@ -47,6 +52,7 @@ public class EurekaClientFeignApplication {
 ```
 
 _定义需要通过FeignClient访问的接口列表，如下：_  
+
 ``` java
 // value为服务名，对应spring.application.name。注意：此服务名必须已注册进Eureka服务中心
 @FeignClient(value = "db-rest", fallback = UserServiceFeignClientFallback.class)
@@ -91,6 +97,7 @@ public class UserServiceFeignClientFallback implements UserServiceFeignClient {
 ```
 
 _以下是RestTemplate调用方式：_
+
 ``` java
 public User getUser(int id) {
 	User user = restTemplate.exchange( "http://db-rest/api/user/{id}", HttpMethod.GET, null, new ParameterizedTypeReference<User>() { }, id).getBody();
@@ -101,6 +108,7 @@ public User getUser(int id) {
 ## 配置Hystrix
 
 * 引入Maven依赖  
+
 ``` maven
 <dependency>
 	<groupId>org.springframework.cloud</groupId>
@@ -109,7 +117,9 @@ public User getUser(int id) {
 ```
 
 * 增加Hystrix配置  
+
 _以下仅配置了启用超时及超时时间_  
+
 ``` java
 @HystrixCommand(commandProperties = {
 		@HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "1000"),
@@ -155,25 +165,34 @@ public class EurekaClientFeignApplication {
 
 ## 运行截图
 * FeignClient方式，根据ID获取User  
+
 ![id-fc](../_images/feign-demo/findUserById-fc.jpg)  
 
 * RestTemplate方式，根据ID获取User  
+
 ![id-rt](../_images/feign-demo/findUserById-rt.jpg)  
 
 * FeignClient方式，根据地址返回User列表  
+
 ![](../_images/feign-demo/getUserByAddress.jpg)  
 
 * FeignClient方式，根据name获取User  
+
 ![](../_images/feign-demo/getUserByName.jpg)  
 
 * FeignClient方式，正常输出hello信息  
+
 ![](../_images/feign-demo/hello.jpg)  
 
 * FeingClient + Hystrix方式，当服务异常停止后，输出hello方法对应的fallback信息    
 ![](../_images/feign-demo/hello-fallback.jpg)  
 
 * Hystrix Dashboard监控  
+
 ![](../_images/feign-demo/hystrix.jpg)  
+
 _输入监控地址：http://localhost:8181/hystrix.stream，点击Monitor Stream，进入监控界面_  
+
 _当访问相关接口时，Hystrix仪表板将会显示每个断路器的健康情况。_
+
 ![](../_images/feign-demo/hystrix.stream.jpg)  

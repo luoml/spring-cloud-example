@@ -9,6 +9,7 @@
 
 ## 启用Zuul  
 * 引入Maven依赖  
+
 ``` maven
 <dependency>
 	<groupId>org.springframework.cloud</groupId>
@@ -20,6 +21,7 @@
 
 _serviceId指定服务名_  
 _url指定服务地址_
+
 ``` properties
 zuul.routes.eureka-client.path = /swagger/**
 zuul.routes.eureka-client.serviceId = eureka-client
@@ -29,6 +31,7 @@ zuul.routes.rest-demo.url = http://localhost:8082/
 ```
 
 _最好还设置下Hystrix的全局超时时间，如下，设置默认超时时间为60s_  
+
 ``` yml
 hystrix:
   command:
@@ -42,6 +45,7 @@ hystrix:
 * 启用Zuul  
 
 _增加@EnableZuulProxy注解，启用Zuul_
+
 ``` java
 @EnableZuulProxy
 @SpringBootApplication

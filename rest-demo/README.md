@@ -5,6 +5,7 @@
 > 3. _通过Spring Data Rest将Spring Data JPA的Repository自动转换成REST服务_  
 > 4. _引入the HAL Browser，便于可视化测试_  
 
+
 |url|desc|  
 |:---|:---|   
 |http://localhost:8082/h2|访问h2控制台|  
@@ -13,6 +14,7 @@
 ## 配置H2数据库
 
 * 引入Maven依赖  
+
 ``` maven
 <dependency>
 	<groupId>com.h2database</groupId>
@@ -41,6 +43,7 @@ spring.h2.console.path=/h2
 ## 配置Spring Data JPA  
 
 * 引入Maven依赖    
+
 ``` maven
 <dependency>
 	<groupId>org.springframework.boot</groupId>
@@ -49,6 +52,7 @@ spring.h2.console.path=/h2
 ```
 
 * 定义实体类
+
 ``` java
 @Entity
 public class User {	
@@ -63,7 +67,9 @@ public class User {
 ```
 
 * 定义仓库接口  
+
 _增加@RepositoryRestResource注解，可通过path自定义Repository访问路径_  
+
 ``` java
 @RepositoryRestResource(path = "user")
 public interface UserRepository extends JpaRepository<User, Integer> {	
@@ -75,6 +81,7 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 ## 配置Spring Data REST  
 
 * 引入Maven依赖    
+
 ``` maven
 <dependency>
 	<groupId>org.springframework.boot</groupId>
@@ -83,6 +90,7 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 ```
 
 _当然，也可直接引入the HAL Browser依赖，这样，测试起来将会更方便、更直观。_  
+
 ``` maven
 <dependency>
 	<groupId>org.springframework.data</groupId>
@@ -91,13 +99,17 @@ _当然，也可直接引入the HAL Browser依赖，这样，测试起来将会�
 ```
 
 * 配置REST相关参数  
+
 _非必须_  
+
 ``` properties
 spring.data.rest.basePath = /api
 ```
 
 * 配置获取主键ID
+
 _默认情况下，接口查询是不会返回主键ID的；如果希望获取主键，可增加如下配置：_  
+
 ``` java
 @Configuration
 public class RepositoryConfig extends RepositoryRestConfigurerAdapter {
@@ -111,10 +123,13 @@ public class RepositoryConfig extends RepositoryRestConfigurerAdapter {
 
 ## 运行截图
 * Spring Data REST  
+
 ![Spring Data REST](../_images/rest-demo/rest.jpg)  
 
 * the HAL Browser  
+
 ![the HAL Browser](../_images/rest-demo/hal.jpg)  
 
 * H2 Console  
+
 ![H2 Console](../_images/rest-demo/h2-console.jpg)  

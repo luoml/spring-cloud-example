@@ -20,6 +20,7 @@ ConfigServer用于管理Git或SVN配置，当其收到来自客户端的配置�
 
 _spring.cloud.config.server.git.uri配置git仓库地址，集中管理服务配置信息_  
 _searchPaths指定扫描路径_
+
 ``` yml
 spring:
   application:
@@ -38,6 +39,7 @@ server:
 * 启用ConfigServer
 
 _增加@EnableConfigServer，启用Config Server_  
+
 ``` java
 @EnableConfigServer
 @SpringBootApplication
@@ -50,7 +52,9 @@ public class ConfigServerApplication {
 
 ## 运行截图
 * eureka-client dev配置  
+
 ![Spring Data REST](../_images/config-server/dev.jpg)    
 
 * eureka-client 默认配置  
+
 ![the HAL Browser](../_images/config-server/default.jpg)  

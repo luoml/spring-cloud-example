@@ -20,6 +20,7 @@
 * 配置Eureka服务注册地址  
 
 _以下是bootstrap.yml中eureka相关配置_  
+
 ``` yml
 eureka:
   instance:
@@ -31,6 +32,7 @@ eureka:
 ```
 
 _注：增加leaseRenewalIntervalInSeconds和leaseExpirationDurationInSeconds配置，可修复EurekaServer界面以下警告：_  
+
 ```
 EMERGENCY! EUREKA MAY BE INCORRECTLY CLAIMING INSTANCES ARE UP WHEN THEY'RE NOT. RENEWALS ARE LESSER THAN THRESHOLD AND HENCE THE INSTANCES ARE NOT BEING EXPIRED JUST TO BE SAFE.
 ```
@@ -53,6 +55,7 @@ public class EurekaClientApplication {
 
 _本项目swagger版本采用2.5.0；_  
 _在测试过程中发现，使用2.6.0版本时，当服务注册到服务中心，会出现服务名为UNKNOWN的情况_  
+
 ``` maven
 <!-- swagger2 -->
 <dependency>
@@ -70,6 +73,7 @@ _在测试过程中发现，使用2.6.0版本时，当服务注册到服务中�
 * 配置并启用Swagger2  
 
 _增加@EnableSwagger2注解，启用Swagger2_  
+
 ``` java
 @Configuration
 @EnableSwagger2
@@ -135,6 +139,7 @@ server:
 * 获取远程服务器文件属性值  
 
 _通过@Value("${属性名}")获取属性值，见DemoController类hello()_  
+
 ``` java
 @Value("${demo.env}")
 private String env;
@@ -144,6 +149,7 @@ private String env;
 ### Actuator
 
 _Actuator提供了很多生产级的特性，如：监控、度量、健康指标等信息_
+
 ``` maven
 <!-- 指标监控等 -->
 <dependency>
@@ -155,6 +161,7 @@ _Actuator提供了很多生产级的特性，如：监控、度量、健康指�
 ### Devtools
 
 _devtools能够实现代码的热部署，可在开发测试阶段启用；如下，只需引入Maven依赖_
+
 ``` maven
 <!-- 热部署 -->
 <dependency>
@@ -166,7 +173,9 @@ _devtools能够实现代码的热部署，可在开发测试阶段启用；如�
 ## 运行截图  
 
 * swagger2演示  
+
 ![swagger2](../_images/eureka-client/swagger.jpg)   
 
 * 应用健康情况  
+
 ![actuator](../_images/eureka-client/health.jpg)   

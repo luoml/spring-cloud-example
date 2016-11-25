@@ -35,6 +35,7 @@ eureka:
 * 启用Eureka Server  
 
 _增加@EnableEurekaServer，启用Eureka Server_  
+
 ``` java
 @EnableEurekaServer
 @SpringBootApplication

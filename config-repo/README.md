@@ -2,6 +2,7 @@
 config-repo为远程Git仓库，用于集中管理服务的配置信息，与config-server配合使用。
 
 _仓库中的资源信息遵循以下规则_  
+
 ``` 
 /{application}/{profile}[/{label}]
 /{application}-{profile}.yml
