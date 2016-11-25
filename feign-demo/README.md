@@ -15,7 +15,7 @@ _RestTemplate方式调用接口_
 
 |url|desc|  
 |:---|:---|  
-|http://localhost:8181/user-rest/1|根据ID获取User [db-rest]（RestTemplate方式）|  
+|http://localhost:8181/user-rest/1|根据ID获取User [db-rest]|  
 
 
 _Hystrix Dashboard监控_  
@@ -164,6 +164,16 @@ public class EurekaClientFeignApplication {
 
 
 ## 运行截图
+* Hystrix Dashboard监控  
+
+![](../_images/feign-demo/hystrix.jpg)  
+
+_输入监控地址：http://localhost:8181/hystrix.stream_  
+_点击Monitor Stream，进入监控界面_  
+_当访问相关接口时，Hystrix仪表板将会显示每个断路器的健康情况。_
+
+![](../_images/feign-demo/hystrix.stream.jpg)  
+
 * FeignClient方式，根据ID获取User  
 
 ![id-fc](../_images/feign-demo/findUserById-fc.jpg)  
@@ -187,12 +197,3 @@ public class EurekaClientFeignApplication {
 * FeingClient + Hystrix方式，当服务异常停止后，输出hello方法对应的fallback信息    
 ![](../_images/feign-demo/hello-fallback.jpg)  
 
-* Hystrix Dashboard监控  
-
-![](../_images/feign-demo/hystrix.jpg)  
-
-_输入监控地址：http://localhost:8181/hystrix.stream，点击Monitor Stream，进入监控界面_  
-
-_当访问相关接口时，Hystrix仪表板将会显示每个断路器的健康情况。_
-
-![](../_images/feign-demo/hystrix.stream.jpg)  
