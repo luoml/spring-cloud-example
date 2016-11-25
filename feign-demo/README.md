@@ -2,13 +2,17 @@
 本模块主要演示集成了Feign、Hystrix的Eureka客户端。  
 
 |url|desc|  
-|:---|:---|   
+|:---|:---|  
+|...|_以下为FeignClient方式实现_|     
 |http://localhost:8181/hello|输出hello信息 [eureka-client]|  
 |http://localhost:8181/user-feign/1|根据ID获取User [db-rest]|  
 |http://localhost:8181/user-feign/getUserByName/张三|根据name获取User [db-rest]|  
 |http://localhost:8181/user-feign/getUserByAddress/test|根据地址获取User [db-rest]|
-|...|_以上均为FeignClient方式实现_|    
+|...|_以下为RestTemplate方式实现_|    
 |http://localhost:8181/user-rest/1|根据ID获取User [db-rest]（RestTemplate方式）|  
+|...|_以下为Hystrix Dashboard监控_|    
+|http://localhost:8181/hystrix|查看仪表盘|  
+|http://localhost:8181/hystrix.stream|在仪表盘中增加监控|  
 
 ## 配置FeignClient
 
@@ -107,6 +111,36 @@ public User getUser(@PathVariable int id) {
 }
 ```
 
+## 配置Hystrix Dashboard
+* 引入Maven依赖  
+``` maven
+<dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-actuator</artifactId>
+</dependency>
+
+<dependency>
+	<groupId>org.springframework.cloud</groupId>
+	<artifactId>spring-cloud-starter-hystrix-dashboard</artifactId>
+</dependency>
+```
+
+*　启用FeignClient  
+_spring boot启动类增加@EnableHystrixDashboard和@EnableCircuitBreaker注解，启用Hystrix Dashboard_  
+``` java
+@EnableHystrixDashboard
+@EnableCircuitBreaker
+@EnableFeignClients
+@EnableDiscoveryClient
+@SpringBootApplication
+public class EurekaClientFeignApplication {
+	public static void main(String[] args) {
+		SpringApplication.run(EurekaClientFeignApplication.class, args);
+	}
+}
+```
+
+
 ## 运行截图
 * FeignClient方式，根据ID获取User  
 ![id-fc](../_images/feign-demo/findUserById-fc.jpg)  
@@ -125,3 +159,10 @@ public User getUser(@PathVariable int id) {
 
 * FeingClient + Hystrix方式，当服务异常停止后，输出hello方法对应的fallback信息    
 ![](../_images/feign-demo/hello-fallback.jpg)  
+
+* Hystrix Dashboard监控  
+![](../_images/feign-demo/hystrix.jpg)  
+
+_输入监控地址：http://localhost:8181/hystrix.stream，点击Monitor Stream，进入监控界面_  
+_当访问相关接口时，Hystrix仪表板将会显示每个断路器的健康情况。_
+![](../_images/feign-demo/hystrix.stream.jpg)  
