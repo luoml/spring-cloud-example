@@ -6,3 +6,4 @@
 * [EurekaClient & ConfigClient & Swagger2](eureka-client/README.md)
 * [Spring Date Rest](rest-demo/README.md)
 * [Feign & Hystrix](feign-demo/README.md)
+* [Spring Boot Admin](admin-server/README.md)

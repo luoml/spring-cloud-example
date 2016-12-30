@@ -19,6 +19,7 @@ _项目基于Spring Boot 1.4.1.RELEASE，各模块简要说明如下：_
 |rest-demo|数据库增删改查<br>涉及Eureka Client、Spring Data JPA、Spring Data REST、H2、the HAL Browser等|  
 |feign-demo|Eureka客户端，集成了Feign、Hystrix等|  
 |api-gateway|Zuul服务网关|  
+|admin-server|监控基于Spring Boot的应用|  
 |...|...|  
 
 
