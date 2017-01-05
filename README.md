@@ -19,9 +19,9 @@ _项目基于Spring Boot 1.4.1.RELEASE，各模块简要说明如下：_
 |[admin-server](admin-server/README.md)|监控基于Spring Boot的应用|  
 |...|...|  
 
-> 项目启动顺序：
-> 1. 服务端（config-server \ eureka-server \ admin-server）
-> 2. 客户端（eureka-client \ feign-demo \ rest-demo）
-> 3. 服务网关（api-gateway）
+> 项目启动顺序：  
+> 1. 服务端（config-server \ eureka-server \ admin-server）  
+> 2. 客户端（eureka-client \ feign-demo \ rest-demo）  
+> 3. 服务网关（api-gateway）  
 
 
