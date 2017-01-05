@@ -2,10 +2,7 @@
 ## Spring Cloud Example  
 Spring Cloud相关DEMO，包含zuul\eureka\swagger2\feign\hystrix\spring cloud config\spring data rest等。  
 
-
 GitHub：<https://github.com/luoml/spring-cloud-example.git>  
-GitBook：<https://www.gitbook.com/book/luoml/spring-cloud-example/details>  
-[从这里开始](https://luoml.gitbooks.io/spring-cloud-example/content/)  
 
 
 _项目基于Spring Boot 1.4.1.RELEASE，各模块简要说明如下：_  
@@ -22,5 +19,9 @@ _项目基于Spring Boot 1.4.1.RELEASE，各模块简要说明如下：_
 |[admin-server](admin-server/README.md)|监控基于Spring Boot的应用|  
 |...|...|  
 
+> 项目启动顺序：
+> 1. 服务端（config-server \ eureka-server \ admin-server）
+> 2. 客户端（eureka-client \ feign-demo \ rest-demo）
+> 3. 服务网关（api-gateway）
 
 
