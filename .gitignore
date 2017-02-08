@@ -1,6 +1,0 @@
-/eureka-server/target
-/eureka-client/target
-/eureka-client-feign/target
-/config-server/target
-/zuul-api-gateway/target
-/rest-demo/target
