@@ -1,5 +1,8 @@
 
 ## Spring Cloud Example  
+
+[![Build Status](https://travis-ci.org/luoml/spring-cloud-example.png?branch=master)](https://travis-ci.org/luoml/spring-cloud-example)
+
 Spring Cloud相关DEMO，包含zuul\eureka\swagger2\feign\hystrix\spring cloud config\spring data rest等。  
 
 GitHub：<https://github.com/luoml/spring-cloud-example.git>  
