@@ -20,7 +20,7 @@ import springfox.documentation.annotations.ApiIgnore;
  * ApiOperation和ApiParam可理解为API说明
  */
 @RestController
-@RequestMapping(value="/hello")
+@RequestMapping(value="/api/hello")
 public class DemoController {
 	@Autowired
     private DiscoveryClient client;
