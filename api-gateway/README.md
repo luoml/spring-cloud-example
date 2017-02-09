@@ -3,7 +3,7 @@
 
 |url|desc|  
 |:---|:---|   
-|http://localhost:8080/swagger/hello|访问eureka-client服务的hello方法|  
+|http://localhost:8080/api/swagger/api/hello|访问eureka-client服务的hello方法|  
 |http://localhost:8080/rest/api/user|获取db-rest服务的User列表|  
 |...|...|
 
@@ -25,6 +25,10 @@ _url指定服务地址_
 ``` properties
 zuul.routes.eureka-client.path = /swagger/**
 zuul.routes.eureka-client.serviceId = eureka-client
+# stripPrefix：是否去除前缀，默认为true
+# stripPrefix=true, http://localhost:8080/api/swagger/api/hello ==> http://localhost:8081/api/hello
+# stripPrefix=false, http://localhost:8080/api/swagger/api/hello ==> http://localhost:8081/api/swagger/api/hello
+zuul.routes.eureka-client.stripPrefix = true
 
 zuul.routes.rest-demo.path = /rest/**
 zuul.routes.rest-demo.url = http://localhost:8082/
