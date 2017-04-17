@@ -29,12 +29,6 @@
 			<artifactId>spring-cloud-starter-hystrix</artifactId>
 		</dependency>
 
-		<!-- 指标监控等 -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-actuator</artifactId>
-		</dependency>
-
 		<!-- hystrix-dashboard监控 -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
