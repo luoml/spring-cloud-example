@@ -8,7 +8,7 @@ Spring Cloud相关DEMO，包含zuul\eureka\swagger2\feign\hystrix\spring cloud c
 GitHub：<https://github.com/luoml/spring-cloud-example.git>  
 
 
-_项目基于Spring Boot 1.4.1.RELEASE，各模块简要说明如下：_  
+_项目基于Spring Boot 1.5.2.RELEASE，各模块简要说明如下：_  
 
 |project|desc|  
 |---|---|  
