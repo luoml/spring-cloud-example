@@ -1,5 +1,5 @@
 # admin-server  
-本模块简单演示了[Spring Boot Admin](http://codecentric.github.io/spring-boot-admin/1.4.5)。  
+本模块简单演示了[Spring Boot Admin](http://codecentric.github.io/spring-boot-admin/1.5.0)。  
 本模块已将admin server注册为eureka客户端，所以不需要再增加admin client。  
 Spinrg Boot Admin可用于管理和监控基于Spring Boot的应用。
 
@@ -12,7 +12,7 @@ Spinrg Boot Admin可用于管理和监控基于Spring Boot的应用。
 
 ``` maven
 <properties>
-    <spring.boot.admin.server>1.4.5</spring.boot.admin.server>
+    <spring.boot.admin.server>1.5.0</spring.boot.admin.server>
     ...
 </properties>
 
