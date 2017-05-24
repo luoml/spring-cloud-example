@@ -7,6 +7,11 @@ spring:
 
 server:
   port: 8181
+  
+logging:
+  level:
+    com.example.eureka.client.feign.service.demo.DemoServiceFeignClient: DEBUG
+    com.example.eureka.client.feign.service.user.UserServiceFeignClient: DEBUG
 
 eureka:
   instance:
