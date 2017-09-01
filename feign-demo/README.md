@@ -61,9 +61,6 @@ public interface UserServiceFeignClient extends UserService {
 }
 
 // 定义FeignClient接口访问列表。注意：地址一定要正确
-// 测试中发现：
-//  spring data rest实现的方法，如带有参数；接口url需要以/method?param={param}的方式定义；
-//  而controller层实现的方法，接口url则可以直接通过/method/{param}的方式定义
 public interface UserService {
 	@RequestMapping(value = "/api/user/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     User getUser(@PathVariable("id") int id);
