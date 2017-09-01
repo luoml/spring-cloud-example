@@ -21,10 +21,3 @@ _项目基于Spring Boot 1.5.2.RELEASE，Spring Cloud Dalston.RELEASE，各模�
 |[api-gateway](api-gateway/README.md)|Zuul服务网关|  
 |[admin-server](admin-server/README.md)|监控基于Spring Boot的应用|  
 |...|...|  
-
-> 项目启动顺序：  
-> 1. 服务端（config-server \ eureka-server \ admin-server）  
-> 2. 客户端（eureka-client \ feign-demo \ rest-demo）  
-> 3. 服务网关（api-gateway）  
-
-
