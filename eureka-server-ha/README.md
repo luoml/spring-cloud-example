@@ -1,5 +1,5 @@
 # eureka-server-ha
-演示双节点Eureka Server集群  
+演示 Eureka Server 双节点集群  
 
 | method | url | desc |  
 | :--- |:---|:---|   
