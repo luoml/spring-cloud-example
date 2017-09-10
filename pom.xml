@@ -13,7 +13,9 @@
 	<modules>
 		<module>config-server</module>
 		<module>eureka-server</module>
+		<module>eureka-server-ha</module>
 		<module>eureka-client</module>
+		<module>config-client</module>
 		<module>rest-demo</module>
 		<module>feign-demo</module>
 		<module>api-gateway</module>
