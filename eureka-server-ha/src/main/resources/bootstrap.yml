@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: eureka-server
+
+logging:
+  file: logs/eureka-server.log  # 打印日志到文件
+  level:
+    ROOT: INFO
+
+---
+spring:
+  profiles: peer1
+server:
+  port: 8761
+eureka:
+  instance:
+    hostname: peer1
+  client:
+    registerWithEureka: true   # 是否将自己注册到服务中心，默认为true
+    fetchRegistry: true        # 是否从服务中心获取注册信息，默认为true
+    serviceUrl:
+      defaultZone: http://peer2:8762/eureka/ # 将自己注册到peer2这个服务中心上去
+
+---
+spring:
+  profiles: peer2
+server:
+  port: 8762
+eureka:
+  instance:
+    hostname: peer2
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://peer1:8761/eureka/
