@@ -1,9 +1,9 @@
 # eureka-server
-本模块用于演示Eureka Server  
+演示Eureka服务注册中心  
 
-|url|desc|  
-|:---|:---|   
-|http://localhost:8761|Eureka服务中心|  
+| method |url|desc|  
+|:--- |:---|:---|   
+| GET |http://localhost:8761|服务注册中心|  
 
 
 ## 启用Eureka Server  
@@ -19,29 +19,18 @@
 * 配置Eureka Server  
 
 ``` yml
-# eureka.client.registerWithEureka 不注册自己到Eureka服务中心
-# eureka.client.fetchRegistry 从Eureka服务中心获取注册信息
-# eureka.client.serviceUrl.defaultZone 设置Eureka服务中心地址
 eureka:
   instance:
     hostname: localhost
   client:
-    registerWithEureka: false
-    fetchRegistry: false
+    registerWithEureka: false   # 是否将自己注册到服务中心，默认为true
+    fetchRegistry: false        # 是否从服务中心获取注册信息，默认为true
     serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+      defaultZone: http://localhost:8761/eureka/ # 设置与Eureka Server交互的地址，默认为http://localhost:8761，多个地址用逗号（,）分隔
 ```
 
 * 启用Eureka Server  
 
-_增加@EnableEurekaServer，启用Eureka Server_  
-
 ``` java
 @EnableEurekaServer
-@SpringBootApplication
-public class EurekaServerApplication {
-	public static void main(String[] args) {
-		SpringApplication.run(EurekaServerApplication.class, args);
-	}
-}
 ```

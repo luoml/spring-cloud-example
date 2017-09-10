@@ -1,25 +1,20 @@
 spring:
   application:
     name: eureka-server
-              
+
+logging:
+  file: logs/eureka-server.log  # 打印日志到文件
+  level:
+    ROOT: INFO
+
 server:
   port: 8761
-  
-# eureka.client.registerWithEureka 不注册自己到Eureka服务中心
-# eureka.client.fetchRegistry 从Eureka服务中心获取注册信息
-# eureka.client.serviceUrl.defaultZone 设置Eureka服务中心地址
+
 eureka:
   instance:
     hostname: localhost
   client:
-    registerWithEureka: false
-    fetchRegistry: false
+    registerWithEureka: false   # 是否将自己注册到服务中心，默认为true
+    fetchRegistry: false        # 是否从服务中心获取注册信息，默认为true
     serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
-
-# 打印日志
-# logging.file 将日志打印到指定文件
-logging:
-#  file: logs/eureka-server.log
-  level:
-    ROOT: INFO
+      defaultZone: http://localhost:8761/eureka/ # 设置与Eureka Server交互的地址，默认为http://localhost:8761/eureka，多个地址用逗号（,）分隔
