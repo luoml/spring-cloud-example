@@ -39,7 +39,7 @@ eureka:
 ## Actuator
 
 _Actuator提供了很多生产级的特性，如：监控、度量、健康指标等信息。_  
-_通过http://{ip}:{port}/{endpoint}的形式访问监控端点，可了解应用程序的运行状况。_
+_通过  http://{ip}:{port}/{endpoint} 的形式访问监控端点，可了解应用程序的运行状况。_
 
 * 引入Maven依赖
 
