@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: config-client
+  profiles:
+    active: dev
+  cloud:
+    config:
+      uri: http://localhost:8888
+
+server:
+  port: 8083
