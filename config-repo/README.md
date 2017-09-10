@@ -11,8 +11,8 @@ _仓库中的资源信息遵循以下规则_
 /{label}/{application}-{profile}.properties
 ```
 
-|variable|value|desc|  
-|:---|:---|:---|   
-|{application}|spring.application.name|客户端服务名|  
-|{profile}|spring.active.profiles|环境变量，多个可用逗号分隔| 
-|{label}|eg: master/trunk/branchs...|仓库分支，eg: master(git)、trunk(svn)|  
+| variable | value | desc |  
+| :--- | :--- | :--- |   
+| {application} | spring.application.name | 客户端服务名 |  
+| {profile} | spring.active.profiles | 环境变量，多个可用逗号分隔 | 
+| {label} | eg: master/trunk/branchs... | 仓库分支，eg: master(git)、trunk(svn) |  
