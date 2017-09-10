@@ -3,8 +3,8 @@
 
 | method | url | desc |  
 | :--- |:---|:---|   
-| GET | http://localhost:8761 | 服务注册中心 |  
-| GET | http://localhost:8762 | 服务注册中心 |  
+| GET | http://peer1:8761 | 服务注册中心 peer1 |  
+| GET | http://peer2:8762 | 服务注册中心 peer2 |  
 
 
 ## 启用Eureka Server  
