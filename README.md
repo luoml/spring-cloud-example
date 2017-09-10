@@ -16,8 +16,9 @@ _项目基于Spring Boot 1.5.2.RELEASE，Spring Cloud Dalston.RELEASE，各模�
 | [config-server](config-server/README.md) | 配置服务器，从config-repo拉取配置清单 |  
 | [eureka-server](eureka-server/README.md) | Eureka 服务注册中心 |  
 | [eureka-server-ha](eureka-server-ha/README.md) | Eureka Server 双节点集群 |  
-| [eureka-client](eureka-client/README.md) | Eureka与Config客户端，集成了Swagger2等|  
-| [config-client](config-client/README.md) | Config客户端，依赖于 config-server|  
+| [eureka-client](eureka-client/README.md) | Eureka客户端，依赖 eureka-server-ha |  
+| [config-client](config-client/README.md) | Config客户端，依赖 config-server |  
+| [swagger2-demo](swagger2-demo/README.md) | Restful API，基于Swagger2 |  
 | [rest-demo](rest-demo/README.md) | 数据库增删改查<br>涉及Eureka Client、Spring Data JPA、Spring Data REST、H2、the HAL Browser等|  
 | [feign-demo](feign-demo/README.md) | Eureka客户端，集成了Feign、Hystrix等 |  
 | [api-gateway](api-gateway/README.md) | Zuul服务网关 |  
