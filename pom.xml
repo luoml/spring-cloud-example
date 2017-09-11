@@ -73,6 +73,13 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<executions>
+	                <execution>
+	                    <goals>
+	                        <goal>build-info</goal> <!-- 生成Actuator使用的构建信息文件build-info.properties -->
+	                    </goals>
+	                </execution>
+	            </executions>
 			</plugin>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
