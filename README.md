@@ -20,7 +20,7 @@ _项目基于Spring Boot 1.5.2.RELEASE，Spring Cloud Dalston.RELEASE，各模�
 | [rest-demo](rest-demo/README.md) | REST服务（Spring Data REST + Spring Data JPA） |   
 | [config-client](config-client/README.md) | Config客户端，依赖 config-server |  
 | [swagger2-demo](swagger2-demo/README.md) | Swagger2 |  
-| [feign-demo](feign-demo/README.md) | Eureka客户端，集成了Feign、Hystrix等 |  
+| [feign-demo](feign-demo/README.md) | Feign，依赖 eureka-server-ha \ eureka-client |  
 | [api-gateway](api-gateway/README.md) | Zuul服务网关 |  
 | [admin-server](admin-server/README.md) | 监控基于Spring Boot的应用 |  
 |...|...|  

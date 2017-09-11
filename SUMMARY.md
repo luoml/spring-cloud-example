@@ -7,6 +7,6 @@
 * [REST服务](rest-demo/README.md)
 * [Config客户端](config-client/README.md)
 * [Swagger2](swagger2-demo/README.md)
-* [Feign & Hystrix](feign-demo/README.md)
+* [Feign](feign-demo/README.md)
 * [Zuul API Gateway](api-gateway/README.md)
 * [Spring Boot Admin](admin-server/README.md)
