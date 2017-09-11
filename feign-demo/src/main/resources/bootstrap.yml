@@ -1,17 +1,13 @@
 spring:
   application:
     name: feign-demo
-  cloud:
-    config:
-      uri: ${config.server.uri:http://localhost:8888}   
 
 server:
   port: 8181
   
 logging:
   level:
-    com.example.eureka.client.feign.service.demo.DemoServiceFeignClient: DEBUG
-    com.example.eureka.client.feign.service.user.UserServiceFeignClient: DEBUG
+    com.example.feign.service.DemoService: DEBUG  # 打印FeignClient接口日志
 
 eureka:
   instance:
