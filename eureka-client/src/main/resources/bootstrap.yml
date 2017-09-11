@@ -5,31 +5,34 @@ spring:
 server:
   port: 8081
 
-# 如果服务在指定的 失效时间 内仍没有发起心跳请求，将会被剔除EurekaServer
 eureka:
   instance:
     leaseRenewalIntervalInSeconds: 10     # 心跳间隔（秒），默认30s
-    leaseExpirationDurationInSeconds: 30  # 失效时间，默认90s
+    leaseExpirationDurationInSeconds: 30  # 失效时间，默认90s，如果服务在指定的 失效时间 内仍没有发起心跳请求，将会被剔除EurekaServer
+    prefer-ip-address: true               # 实例名称显示IP配置（与instance-id配合使用）
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}  # 将InstanceID设置为 IP:Port 形式
   client:
     serviceUrl:
       defaultZone: http://peer1:8761/eureka/,http://peer2:8762/eureka/
+    healthcheck:
+      enabled: true     # 将 actuator health中的健康状态传播到Eureka Server
 
 management:
-  port: 8099        # actuator 暴露接口使用的端口
+  port: 8099            # actuator 暴露接口使用的端口
   context-path: /admin  # actuator 暴露接口的前缀
   security:
-    enabled: true   # 启用基本鉴权，默认为true
+    enabled: true       # 启用基本鉴权，默认为true
 endpoints:
   health:
-    sensitive: true # actuator的health接口是否敏感
+    sensitive: true     # actuator的health接口是否敏感
 
 security:
   basic:
     enabled: true
-    path: /admin      # 拦截/admin
+    path: /admin        # 拦截/admin
   user:
-    name: admin       # 用户名
-    password: 123456  # 密码
+    name: admin         # 用户名
+    password: 123456    # 密码
 
 # 自定义 info 端点
 info: 

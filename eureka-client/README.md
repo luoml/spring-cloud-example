@@ -4,7 +4,7 @@
 | method | url | desc |  
 | :--- | :--- | :--- |   
 | GET | http://localhost:8081/api/hello?name=test | 接口测试 |  
-| GET | http://localhost:8099/admin/health | 返回应用程序的健康指标，Actuator提供功能之一 |   
+| GET | http://localhost:8099/admin/health | 返回应用程序的健康指标，Actuator提供功能之一。登录账户：admin/123456 |   
 
 ## 启用Eureka Client  
 * 引入Maven依赖  
@@ -20,14 +20,17 @@
 * 配置Eureka客户端
 
 ``` yml
-# 如果服务在指定的 失效时间 内仍没有发起心跳请求，将会被剔除EurekaServer
 eureka:
   instance:
     leaseRenewalIntervalInSeconds: 10     # 心跳间隔（秒），默认30s
-    leaseExpirationDurationInSeconds: 30  # 失效时间，默认90s
+    leaseExpirationDurationInSeconds: 30  # 失效时间，默认90s，如果服务在指定的 失效时间 内仍没有发起心跳请求，将会被剔除EurekaServer
+    prefer-ip-address: true               # 实例名称显示IP配置（与instance-id配合使用）
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}  # 将InstanceID设置为 IP:Port 形式
   client:
     serviceUrl:
       defaultZone: http://peer1:8761/eureka/,http://peer2:8762/eureka/
+    healthcheck:
+      enabled: true     # 将 actuator health中的健康状态传播到Eureka Server
 ```
 
 * 启用服务注册与发现  
@@ -61,21 +64,21 @@ _通过  http://{ip}:{port}/{endpoint} 的形式访问监控端点，可了解�
 
 ```
 management:
-  port: 8099        # actuator 暴露接口使用的端口
+  port: 8099            # actuator 暴露接口使用的端口
   context-path: /admin  # actuator 暴露接口的前缀
   security:
-    enabled: true   # 启用基本鉴权，默认为true
+    enabled: true       # 启用基本鉴权，默认为true
 endpoints:
   health:
-    sensitive: true # actuator的health接口是否敏感
+    sensitive: true     # actuator的health接口是否敏感
 
 security:
   basic:
     enabled: true
-    path: /admin      # 拦截/admin
+    path: /admin        # 拦截/admin
   user:
-    name: admin       # 用户名
-    password: 123456  # 密码
+    name: admin         # 用户名
+    password: 123456    # 密码
 
 # 自定义 info 端点
 info: 
