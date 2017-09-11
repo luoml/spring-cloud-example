@@ -16,7 +16,7 @@ _项目基于Spring Boot 1.5.2.RELEASE，Spring Cloud Dalston.RELEASE，各模�
 | [config-server](config-server/README.md) | 配置服务器，从config-repo拉取配置清单 |  
 | [eureka-server](eureka-server/README.md) | Eureka Server 注册中心 |  
 | [eureka-server-ha](eureka-server-ha/README.md) | Eureka Server 双节点集群 |  
-| [zuul-gateway](zuul-gateway/README.md) | Zuul服务网关，可配合 eureka-server-ha \ eureka-client \ feign-demo 使用  |  
+| [zuul-gateway](zuul-gateway/README.md) | Zuul 服务网关，依赖 eureka-server-ha，可配合 eureka-client \ feign-demo 使用  |  
 | [eureka-client](eureka-client/README.md) | Eureka客户端，依赖 eureka-server-ha |  
 | [rest-demo](rest-demo/README.md) | REST服务（Spring Data REST + Spring Data JPA） |   
 | [config-client](config-client/README.md) | Config客户端，依赖 config-server |  

@@ -29,8 +29,8 @@ _Zuul starter并没有包含服务发现的客户端，所以还需要引入服�
 * 配置路由  
 
 ``` yml
-# 移除前缀    http://localhost:8080/service/hello/feign-demo ==> http://feign-demo/hello/xxx
-# 不移除前缀 http://localhost:8080/api/hello?name=eureka-client  ==> http://eureka-client/api/hello?name=xxx
+# 移除前缀    http://localhost:8080/service/hello/xxx ==> http://feign-demo/hello/xxx
+# 不移除前缀 http://localhost:8080/api/hello?name=xxx  ==> http://eureka-client/api/hello?name=xxx
 zuul:
   routes:
     feign-demo:                 # 名称自定义 
