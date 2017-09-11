@@ -33,9 +33,3 @@ security:
   user:
     name: admin         # 用户名
     password: 123456    # 密码
-
-# 自定义 info 端点
-info: 
-  app: 
-    name: eureka-client
-    
