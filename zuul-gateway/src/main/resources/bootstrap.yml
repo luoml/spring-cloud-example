@@ -1,9 +1,9 @@
 spring:
   application:
-    name: api-gateway
+    name: gateway
   cloud:
     config:
-      uri: ${config.server.uri:http://localhost:8888}
+      uri: http://localhost:8888
 
 server:
   port: 8080
@@ -11,7 +11,18 @@ server:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://peer1:8761/eureka/,http://peer2:8762/eureka/
+
+zuul:
+  routes:
+    feign-demo:                 # 名称自定义
+      path: /service/**         # 访问前缀
+      serviceId: feign-demo     # 服务名
+    eureka-client: 
+      path: /api/**
+      serviceId: eureka-client
+      stripPrefix: false        # 移除前缀，默认为true
+
 
 # 设置默认超时时间60s（default为全局；若设置某项服务的超时时间，只需要将default替换为对应的服务名）
 hystrix:

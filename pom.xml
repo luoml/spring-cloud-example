@@ -14,12 +14,12 @@
 		<module>config-server</module>
 		<module>eureka-server</module>
 		<module>eureka-server-ha</module>
+		<module>zuul-gateway</module>		
 		<module>eureka-client</module>
 		<module>config-client</module>
 		<module>swagger2-demo</module>
 		<module>rest-demo</module>
 		<module>feign-demo</module>
-		<module>api-gateway</module>
 		<module>admin-server</module>
 	</modules>
 
