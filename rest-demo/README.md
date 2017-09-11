@@ -1,10 +1,10 @@
 # rest-demo  
 演示使用 Spring Data JPA + Spring Data REST 构建符合HATEOAS规范的REST应用。  
   
-> 1. _采用嵌入式的H2数据库_  
-> 2. _使用Spring Data JPA进行数据持久化_  
-> 3. _通过Spring Data Rest构建超媒体驱动（hypermedia-driven）的REST服务，利用Spring Data repositories，直接将其方法暴露为REST资源_  
-> 4. _引入HAL Browser，以便于可视化测试；HAL-browser是基于hal+json的media type的API浏览器_  
+1. _采用嵌入式的H2数据库_  
+2. _使用Spring Data JPA进行数据持久化_  
+3. _通过Spring Data Rest构建超媒体驱动（hypermedia-driven）的REST服务，利用Spring Data repositories，直接将其方法暴露为REST资源_  
+4. _引入HAL Browser，以便于可视化测试；HAL-browser是基于hal+json的media type的API浏览器_  
 
 | url | desc |  
 | :--- | :--- |   
@@ -13,15 +13,15 @@
 
 ## 名词释义
 
-__REST__  
+__1. REST__  
 REST（Representational state transfer，表达性状态转换）是一组架构约束条件和原则，满足这些约束条件和原则的应用程序或设计就是 RESTful。  
 
 
-__HATEOAS__  
+__2. HATEOAS__  
 HATEOAS（Hypermedia as the engine of application state）是 REST 架构风格中最复杂的约束，也是构建成熟 REST 服务的核心。  
 
 
-__REST Maturity Model__
+__3. REST Maturity Model__  
 _REST成熟度模型把 REST服务按照成熟度划分成 4个层次：_
 * 第一个层次（Level 0）的 Web服务只是使用 HTTP 作为传输方式，实际上只是远程方法调用（RPC）的一种具体形式。SOAP 和 XML-RPC 都属于此类。
 * 第二个层次（Level 1）的 Web服务引入了资源的概念。每个资源有对应的标识符和表达。
