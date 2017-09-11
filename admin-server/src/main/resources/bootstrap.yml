@@ -1,6 +1,7 @@
 spring:
   application:
-    name: admin 
+    name: admin-server
+      
 server:
   port: 8090
 
@@ -10,4 +11,8 @@ eureka:
     leaseExpirationDurationInSeconds: 30
   client:
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://peer1:8761/eureka/,http://peer2:8762/eureka/
+
+management:
+  security:
+    enabled: false  # 关闭actuator安全认证

@@ -11,10 +11,6 @@
 	</parent>
 	<artifactId>admin-server</artifactId>
 
-	<properties>
-		<spring.boot.admin.server>1.5.0</spring.boot.admin.server>
-	</properties>
-
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
@@ -24,12 +20,12 @@
 		<dependency>
 			<groupId>de.codecentric</groupId>
 			<artifactId>spring-boot-admin-server</artifactId>
-			<version>${spring.boot.admin.server}</version>
+			<version>1.5.0</version>
 		</dependency>
 		<dependency>
 			<groupId>de.codecentric</groupId>
 			<artifactId>spring-boot-admin-server-ui</artifactId>
-			<version>${spring.boot.admin.server}</version>
+			<version>1.5.0</version>
 		</dependency>
 	</dependencies>
 
