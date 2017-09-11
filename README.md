@@ -17,9 +17,9 @@ _项目基于Spring Boot 1.5.2.RELEASE，Spring Cloud Dalston.RELEASE，各模�
 | [eureka-server](eureka-server/README.md) | Eureka Server 注册中心 |  
 | [eureka-server-ha](eureka-server-ha/README.md) | Eureka Server 双节点集群 |  
 | [eureka-client](eureka-client/README.md) | Eureka客户端，依赖 eureka-server-ha |  
+| [rest-demo](rest-demo/README.md) | REST服务（Spring Data REST + Spring Data JPA） |   
 | [config-client](config-client/README.md) | Config客户端，依赖 config-server |  
-| [swagger2-demo](swagger2-demo/README.md) | Restful API，基于Swagger2 |  
-| [rest-demo](rest-demo/README.md) | 数据库增删改查<br>涉及Eureka Client、Spring Data JPA、Spring Data REST、H2、the HAL Browser等|  
+| [swagger2-demo](swagger2-demo/README.md) | Swagger2 |  
 | [feign-demo](feign-demo/README.md) | Eureka客户端，集成了Feign、Hystrix等 |  
 | [api-gateway](api-gateway/README.md) | Zuul服务网关 |  
 | [admin-server](admin-server/README.md) | 监控基于Spring Boot的应用 |  
