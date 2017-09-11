@@ -1,6 +1,6 @@
 spring:
   application:
-    name: eureka-server
+    name: eureka-server-ha
 
 logging:
   file: logs/eureka-server.log  # 打印日志到文件
