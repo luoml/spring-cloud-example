@@ -35,3 +35,29 @@ _在Spring Boot启动类增加@EnableFeignClients注解，使其自动扫描@Fei
 ``` java
 @EnableFeignClients
 ```
+
+## 配置Feign日志
+
+_增加Feign配置类 (FeignConfiguration.java)，配置日志级别。 _
+
+```
+/**
+ * 设置Feign日志级别 ，需要配合 logging.level.<package.FeignClientClassName>=debug 使用（必须是debug级别）
+ * NONE		不记录 (DEFAULT)
+ * BASIC	仅记录请求方式、URL及 响应状态码、执行时间
+ * HEADERS	记录日志基本信息与请求头、响应头
+ * FULL		记录请求头、响应头、正文及元数据
+ */
+@Bean
+public Logger.Level feignLoggerLevel() {
+    return Logger.Level.FULL;
+}
+```
+
+_在配置文件中设置  FeignClient接口类 的日志级别为 DEBUG（注意：必须为 DEBUG），格式为：logging.level.<自定义FeignClient接口全路径名>=DEBUG_
+
+```
+logging:
+  level:
+    com.example.feign.service.DemoService: DEBUG
+```
